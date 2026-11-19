@@ -175,7 +175,7 @@
       <div class="topbar">
         <div class="wrap topbar-inner">
           <h1 class="page-title serif">菜单记录本</h1>
-          <p class="page-sub">分享版 · 共 <strong id="totalCount"></strong> 条菜谱 · 更新于 <strong>2026年11月18日</strong><br />可以按分类看、搜索、点开看食材和做法，还能排一周菜单、自动生成购物清单。排好的菜单和清单只留在这台设备当前打开的页面里，不会改动菜谱本。</p>
+          <p class="page-sub">分享版 · 共 <strong id="totalCount"></strong> 条菜谱 · 更新于 <strong>2026年11月18日</strong></p>
           <div class="tabs" role="tablist" aria-label="主要栏目">
             <button class="tab active" id="tabRecipes" role="tab" aria-selected="true">菜谱</button>
             <button class="tab" id="tabPlan" role="tab" aria-selected="false">一周菜单<span class="tab-count hidden" id="planCount"></span></button>
@@ -199,8 +199,8 @@
           <div class="plan-head">
             <h2 class="serif">一周晚餐安排</h2>
             <p id="planWeekLabel"></p>
-            <p style="background:var(--surface);border:1px solid var(--border);border-radius:.75rem;padding:.7rem .9rem;color:var(--text)">分享快照（2026年11月18日）：菜谱本里这一周还没有排晚餐安排，所以上面暂时是空的；之后排好的安排会随每日同步更新到这里。下面这份可以自己先排着试，食材会自动进购物清单。</p>
-            <p>给每天选一道菜谱，或写一个还没收进菜谱本的想法菜；每一天还能记一句准备提醒（比如解冻、提前腌制）。排好后切到「购物清单」，食材会自动汇总。</p>
+            
+            
           </div>
           <div id="planDays"></div>
           <div class="plan-actions">
@@ -719,14 +719,14 @@
             });
             html += '</ul>';
           } else {
-            html += '<p class="plan-empty">还没安排 — 在下面选一道菜，或写个想法菜。</p>';
+            html += '<p class="plan-empty">还没安排</p>';
           }
           if(dayPrep[di]) html += '<p class="prep-note-show">准备：'+esc(dayPrep[di])+'</p>';
-          html += '<div class="prep-row"><label for="prep-'+di+'">准备提醒</label><input class="prep-input" id="prep-'+di+'" data-prep="'+di+'" type="text" placeholder="如：早上解冻鸡腿 / 提前腌肉" value="'+esc(dayPrep[di])+'" /></div>';
+          html += '<div class="prep-row"><label for="prep-'+di+'">准备提醒</label><input class="prep-input" id="prep-'+di+'" data-prep="'+di+'" type="text" placeholder="" value="'+esc(dayPrep[di])+'" /></div>';
           html += '<div class="add-row"><select data-pick="'+di+'" aria-label="'+DOW_NAMES[di]+'选择菜谱">'+recipeOptionsHtml()+'</select>';
           html += '<div class="add-btns"><button class="btn btn-primary" data-add-recipe="'+di+'">＋ 加入这一天</button></div>';
-          html += '<input type="text" data-idea="'+di+'" placeholder="想法菜名，如：番茄炒蛋" aria-label="'+DOW_NAMES[di]+'想法菜名" />';
-          html += '<input type="text" data-idea-ing="'+di+'" placeholder="想法菜的食材（可选，填了会进购物清单，如：番茄、鸡蛋）" aria-label="'+DOW_NAMES[di]+'想法菜食材" />';
+          html += '<input type="text" data-idea="'+di+'" placeholder="想法菜名" aria-label="'+DOW_NAMES[di]+'想法菜名" />';
+          html += '<input type="text" data-idea-ing="'+di+'" placeholder="食材（可选）" aria-label="'+DOW_NAMES[di]+'想法菜食材" />';
           html += '<div class="add-btns"><button class="btn btn-soft" data-add-idea="'+di+'">＋ 加想法菜</button></div></div>';
           html += '</section>';
         });
